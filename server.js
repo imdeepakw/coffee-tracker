@@ -7,9 +7,9 @@ require('dotenv').config()
 
 let db, 
 dbConnectionStr = process.env.DB_STRING,
-dbName = 'coffeeTracker'
+dbName = 'CoffeeTracker'
 
-MongoClient.connect(dbConnectionStr, {useUnifiedTopology: true})
+MongoClient.connect(dbConnectionStr)
 .then(client => {
     console.log(`Conected to ${dbName} Database`)
     db = client.db(dbName)
@@ -19,3 +19,24 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 app.listen(PORT)
+
+app.get('/', (request, response)=>{
+    response.sendFile(__dirname + '/index.html')
+})
+
+app.post('/coffee', (request, response) => {
+    db.collection('coffeeData').insertOne({
+        coffeeBrand: request.body.coffeeBrand, 
+        roastType: request.body.roastType, 
+        coffeeForm:  request.body.coffeeForm,
+        coffeeOrigin: request.body.coffeeOrigin,
+        brewingMethod: request.body.brewingMethod,
+        coffeeFlavor: request.body.coffeeFlavor,
+        brewTime: request.body.brewTime
+    })
+    .then(result => {
+        console.log('Coffee Added')
+        response.redirect('/')
+    })
+    .catch(error => console.log(error))
+})
