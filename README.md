@@ -36,6 +36,9 @@ I present to you Coffeemania, a new way to track your coffee bags. Users can add
 * User can now add the coffee information to the database using a submit button
 * Created the index.html with the form element that the user can use to send their coffee information so it can be saved into the database
 
+### January 13, 2025
+* Coffee added to the database is shown to the the user using EJS to load the HTML template. 
+
 
 ## Future Optimizations
 * Users can create an account and track their coffee 
@@ -43,6 +46,8 @@ I present to you Coffeemania, a new way to track your coffee bags. Users can add
 * Users can find recipes by brewing method / instrument
 * Use the React Framework for the frontend
 * Improve form that allows adding coffee to the tracking list
+* Add a coffee tab where the user can see their coffee list 
+* Add a recipe tab where the user can see a list of all the recipes
 
 
 ## Lessons Learned:

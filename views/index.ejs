@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Coffeemania Coffee Tracker</h1>
+
+    <form action="/coffee" method="post">
+        <input type="text" placeholder="Coffee Brand Name" name="coffeeBrand">
+        <input type="text" placeholder="Type of Roast" name="roastType">
+        <input type="text" placeholder="Coffee Form" name="coffeeForm">
+        <input type="text" placeholder="Origin" name="coffeeOrigin">
+        <input type="text" placeholder="Brewing method" name="brewingMethod">
+        <input type="text" placeholder="Flavor profile" name="coffeeFlavor">
+        <input type="text" placeholder="Brew time" name="brewTime">
+        <input type="submit">
+    </form>
+
+    <h2>Coffee List</h2>
+    <ul class="coffeeList">
+        <% for(let i=0; i < info.length; i++) {%>
+            <li class="coffee">
+                <span><%= info[i].coffeeBrand %></span>
+                <span><%= info[i].roastType %></span>
+                <span><%= info[i].coffeeForm %></span>
+                <span><%= info[i].coffeeOrigin %></span>
+                <span><%= info[i].brewingMethod %></span>
+                <span><%= info[i].coffeeFlavor %></span>
+                <span><%= info[i].brewTime %></span>
+                <input type="button" value="Edit">
+                <span class='fa fa-trash'></span>
+            </li>
+        <% } %>
+        </ul>
+    </ul>
+
+</body>
+</html>

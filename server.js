@@ -17,11 +17,15 @@ MongoClient.connect(dbConnectionStr)
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-
+app.set('view engine', 'ejs')
 app.listen(PORT)
 
 app.get('/', (request, response)=>{
-    response.sendFile(__dirname + '/index.html')
+    db.collection('coffeeData').find().toArray()
+    .then(data => {
+        response.render('index.ejs', {info: data})
+    })
+    .catch(error => console.log(error))
 })
 
 app.post('/coffee', (request, response) => {
