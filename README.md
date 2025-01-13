@@ -38,6 +38,7 @@ I present to you Coffeemania, a new way to track your coffee bags. Users can add
 
 ### January 13, 2025
 * Coffee added to the database is shown to the the user using EJS to load the HTML template. 
+* Users can now delete the coffee from their coffee list.
 
 
 ## Future Optimizations
