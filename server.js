@@ -54,3 +54,13 @@ app.delete('/deleteCoffee', (request, response) => {
     })
     .catch(error => console.log(error))
 })
+
+app.get('/editCoffee/:coffeeName', (request, response) => {
+    const coffeeBrand = request.params.coffeeName
+    console.log(coffeeBrand)
+    db.collection('coffeeData').findOne({'coffeeBrand': coffeeBrand})
+    .then(data => {
+        console.log(data)
+        response.render('edit.ejs', {info: data})
+    })
+})
